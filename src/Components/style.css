@@ -1,0 +1,51 @@
+
+#footer{
+   color:white;
+    background-color: rgba(22, 21, 21, 0.8);
+}
+
+#imgoverlay{
+    position: absolute;
+    top: 150px;
+    color: black;
+
+}
+#btn{
+background-color: rgba(83, 85, 47, 0.859);
+border: 1px solid whitesmoke;
+
+
+}
+#btn:hover{
+    background-color: white;
+    color: black;
+}#cartIcon{
+ color:black;
+    margin-left: 15px;
+}#profileIcon{
+    color: white;
+    margin-left: 15px;
+}#image{
+    width: 750px;
+    margin: 20px;
+    margin-bottom: 200px;
+}.viewTitle{
+    height: 500px;
+    width: 600px;
+    background-color: rgb(238, 238, 236);
+}.button{
+    text-decoration: none;
+    color: rgb(8, 40, 115);
+}.button:hover{
+
+    text-decoration: underline;
+}#cart-flex{
+background-color: bisque;
+    display: flex;
+    justify-content: space-between;
+}#cart-bg{
+    background-color: rgb(135, 135, 125);
+}#addToCartButton:hover{
+color: rgb(0, 0, 0);
+
+}
