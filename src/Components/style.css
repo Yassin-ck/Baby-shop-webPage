@@ -49,3 +49,14 @@ background-color: bisque;
 color: rgb(0, 0, 0);
 
 }
+.inputproductsadmin{
+
+border: 1px solid white;
+border-radius: 1px;
+    width: 85%;
+}.inputproductsadmin:hover{
+    border: 1px solid rgb(88, 127, 153);
+    border-radius: 5px;
+}#adminproducts{
+    border: 20px;
+}

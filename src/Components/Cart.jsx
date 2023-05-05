@@ -90,7 +90,7 @@ const Cart = () => {
       {carts.map((item) => {
         return (
           <div key={item.id}>
-         {item.qty}   <div
+          <div  
               id="cart-flex"
               key={item.id}
               className="d-flex align-items-center justify-content-between ps-2 "

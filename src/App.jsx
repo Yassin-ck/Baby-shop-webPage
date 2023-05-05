@@ -17,7 +17,11 @@ import Login from "./Components/Login";
 import AdminSidebar from "./Components/Admin/AdminSidebar";
 import UserAdmin from "./Components/Admin/UserAdmin";
 import UserLogindata from "./Components/Admin/UserLogindata";
-
+import { ProductsList } from "./Components/ProducsList";
+import AdminProducts from "./Components/Admin/AdminProducts";
+import Collections from "./Components/Collections";
+import AdminAddproducts from "./Components/Admin/AdminAddproducts";
+import AdminEdit from "./Components/Admin/AdminEdit";
 // const x = () =>
 //  {
 //   for (let i = 0; i < ProductsList.length; i++) {
@@ -49,6 +53,7 @@ import UserLogindata from "./Components/Admin/UserLogindata";
 
 // const initialState=[]
 function App() {
+  const [products,setProducts]=useState(ProductsList)
   const[login,setLogin]=useState([])
   const location = useLocation();
   const [change, setChange] = useState(false);
@@ -60,7 +65,10 @@ function App() {
     setChange,
     carts,
     setCarts,
-    login,setLogin
+    login,
+    setLogin,
+    products,
+    setProducts
   };
   useEffect(() => {
     if (location.pathname.includes("admin")) {
@@ -80,6 +88,7 @@ function App() {
           <Route path="/Toys" element={<Toys />}></Route>
           <Route path="/Cloths" element={<Cloths />}></Route>
           <Route path="/Diapers" element={<Diapers />}></Route>
+          <Route path="/collections" element={<Collections />}></Route>
           <Route path="/view/:id" element={<View />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/login" element={<Login />}></Route>
@@ -88,6 +97,9 @@ function App() {
           <Route element={<AdminSidebar />}>
             <Route path="/admin/user" element={<UserAdmin />}></Route>
             <Route path="/admin/logindata" element={<UserLogindata />}></Route>
+            <Route path="/admin/products" element={<AdminProducts />}></Route>
+            <Route path="/admin/addproducts" element={<AdminAddproducts />}></Route>
+            <Route path="/admin/productedit/:id" element={<AdminEdit />}></Route>
           </Route>
         </Routes>
         {change ? null : <Footer />}

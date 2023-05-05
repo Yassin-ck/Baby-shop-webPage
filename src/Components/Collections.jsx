@@ -1,20 +1,21 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { ProductsList } from './ProducsList'
 import { Card ,Button} from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { myContext } from '../Context/myContext'
-const Toys = () => {
-  const {products}=useContext(myContext)
+const Collections = () => {
+
+    const data=useContext(myContext)
+    const {products}=data
+  
   const navigate=useNavigate()
-const toyProducts=products.filter((item)=>{
-    return item.model==='Toys'
-})
+
 
   return (
  
     <div className='d-flex flex-column container'>
     <div className='row gap-5'>
-    {toyProducts.map((item)=>(
+    {products.map((item)=>(
        
         <Card
         className="shadow p-3 mb-5 bg-body-tertiary rounded"
@@ -24,20 +25,18 @@ const toyProducts=products.filter((item)=>{
             <Card.Img
               variant="top"
               src={item.image}
-              style={{ height: "240px",maxWidth:'300px' }}
+              style={{ height: "300px" ,maxWidth:'300px' }}
             />
             <Card.Body>
-              <Card.Title>{item.title}</Card.Title>
-              <Card.Text><strong>₹</strong>  {item.price}</Card.Text>
-              <Button variant="primary" onClick={()=>navigate(`/View/${item.id}`)}>Shop</Button>
+              <Card.Title>{item.title}</Card.Title>     
+              <Card.Text><strong>₹</strong> {item.price}</Card.Text>
+             <Button variant="primary" onClick={()=>navigate(`/View/${item.id}`)}>Shop</Button>
             </Card.Body>
           </Card>
     ))}
-    
-  
     </div>
     </div>
   )
 }
 
-export default Toys
+export default Collections

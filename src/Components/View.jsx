@@ -6,9 +6,9 @@ import { myContext } from "../Context/myContext";
 import { ProductsList } from "./ProducsList";
 const View = () => {
   const output = useContext(myContext);
-  const { carts, setCarts } = output;
+  const { carts, setCarts,products } = output;
   const { id } = useParams();
-  const data = ProductsList.filter((item) => item.id === parseInt(id));
+  const data = products.filter((item) => item.id === parseInt(id));
   const clickHandler = () => {
     // const Cart = data.input((item) => item.id === parseInt(id));
     const Cart = carts.filter((item) => item.id === parseInt(id));

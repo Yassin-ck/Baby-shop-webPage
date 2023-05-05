@@ -17,7 +17,8 @@ function Header() {
             navbarScroll
           >
             <Nav.Link as={Link} to="/" style={{color:'white'}} >Home</Nav.Link>
-            <Nav.Link as={Link} to="/categories" style={{color:'white'}} >Shop</Nav.Link>
+            <Nav.Link as={Link} to="/categories" style={{color:'white'}} >Categoreis</Nav.Link>
+            <Nav.Link as={Link} to="/collections" style={{color:'white'}} >Collections</Nav.Link>
             {/*<NavDropdown style={{color:'white'}} title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item  style={{color:'white'}} href="#action3">Action</NavDropdown.Item>
   <NavDropdown.Item style={{color:'white'}} href="#action4">*

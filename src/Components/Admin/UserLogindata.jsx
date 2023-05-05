@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { myContext } from '../../Context/myContext'
+import { ListGroup, ListGroupItem } from 'react-bootstrap'
 
 const UserLogindata = () => {
     const{login,setLogin}=useContext(myContext)
@@ -12,8 +13,9 @@ const UserLogindata = () => {
     {login.map((item,index)=>{
         return(
         <div key={index}>
-        <h1>{item.name}</h1>
-        <h1>{item.password}</h1>
+        <ListGroup>
+        <ListGroupItem>{item.name}</ListGroupItem>
+        </ListGroup>
 </div>)
     })}
     

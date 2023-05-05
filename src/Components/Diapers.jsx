@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { ProductsList } from './ProducsList'
 import { Card ,Button} from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import { myContext  } from '../Context/myContext'
 
 const Diapers = () => {
+  const {products}=useContext(myContext)
   const navigate=useNavigate()
     
-const diapersProducts=ProductsList.filter((item)=>{
+const diapersProducts=products.filter((item)=>{
     return item.model==='Diapers'
 })
 
