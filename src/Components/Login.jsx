@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { Button } from "react-bootstrap";
+import { Badge, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 import { myContext } from "../Context/myContext";
 const Login = () => {
   const data = useContext(myContext);
-  const { login, setLogin } = data;
+  const { login, setLogin ,profileName,setProfileName} = data;
   const navigate = useNavigate();
   // useEffect(()=>{
   //   console.warn(login);
@@ -14,6 +14,9 @@ const Login = () => {
 
   const namedetails = login.map((item) => { return item.name});
   const passdetails = login.map((item) => {return item.password});
+  // console.warn(namedetails);
+  // console.warn(namedetails[0]);
+  // console.warn(namedetails[namedetails.length-1]);
   // const signindetails={passdetails,namedetails}
   // console.warn(namedetails,passdetails);
   // console.log(namedetails);
@@ -24,6 +27,8 @@ const Login = () => {
   // const x={name,password}
   // console.warn(x);
   // setLogin(dataobj)
+  // const namess= login.filter((item)=>{return item[length-1].name})
+// console.warn(namess);
   const clickHandler = () => {
     const name = inputRef.current.username.value;
     const password = inputRef.current.password.value;
@@ -35,7 +40,22 @@ const Login = () => {
     }
     //  setLogin(...login,[name,password])
     //  console.log(login);
+    setProfileName(namedetails[namedetails.length-1])
+
+    // console.log(profileName);
+    
+    
   };
+  // console.warn(profileName);
+//   useEffect(()=>{
+//     if(profileName.length>0){
+   
+// alert('Already logined')
+//    return  navigate('/')
+//     }
+//     },[])
+//     console.log(login);
+   
   return (
     <div
       className="container  d-flex justify-content-center align-items-center "
@@ -84,4 +104,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Login

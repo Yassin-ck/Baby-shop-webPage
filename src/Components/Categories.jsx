@@ -1,7 +1,5 @@
-import React, { useContext, useEffect } from "react";
 import { Button, Card } from "react-bootstrap";
-import { useLocation, useNavigate } from "react-router-dom";
-import { myContext } from "../Context/myContext";
+import { useNavigate } from "react-router-dom";
 
 const Category = [
   {
@@ -19,17 +17,14 @@ const Category = [
   {
     id: 3,
     title: "Diapers",
-    Discription: "thengha",
+    Discription: "safety",
     image: "/src/Images/pexels-polina-tankilevitch-3875089.jpg",
   },
 ];
 
 function Categories() {
-  const data=useContext(myContext)
-  const{change,setChange}=data
-  const location=useLocation()
+
   const Navigate = useNavigate();
- 
 
   return (
     <div className=" d-flex flex-column container ">

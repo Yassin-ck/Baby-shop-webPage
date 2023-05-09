@@ -9,7 +9,7 @@ const AdminEdit = () => {
     const edit=products.filter((item)=>item.id===parseInt(id))
     const [edited]=edit
     // console.log(edit);
-    console.warn(edited); 
+    // console.warn(edited); 
     const inputRef=useRef(edited)
    
     
@@ -24,14 +24,11 @@ const Discription=inputRef.current.Description.value
 // console.log(newDetails);
 const updated=products.filter((item)=> item.id !== edited.id)
 const newDetails={id,model,title,price,qty,image,Discription}
-console.log(newDetails);
+// console.log(newDetails);
 setProducts([...updated,newDetails])
-if(edited==newDetails){
-    alert('No changes Made')
-}else{ Navigate('/admin/products')
-alert('product edited succesfully')}
-   
 
+Navigate('/admin/products')
+alert('product edited succesfully')
     }
   return (
     <div>{edit.map((item)=>

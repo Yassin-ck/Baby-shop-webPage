@@ -1,12 +1,15 @@
 import React, { useContext, useEffect } from "react";
-import { Routes, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import "./style.css";
 import { Button, Image } from "react-bootstrap";
 import { myContext } from "../Context/myContext";
-import { ProductsList } from "./ProducsList";
+
+
 const View = () => {
+  const navigate=useNavigate()
   const output = useContext(myContext);
-  const { carts, setCarts,products } = output;
+  const { carts, setCarts,products,profileName } = output;
+  console.log(carts);
   const { id } = useParams();
   const data = products.filter((item) => item.id === parseInt(id));
   const clickHandler = () => {
@@ -15,7 +18,15 @@ const View = () => {
     const [tocarts] = data; //[{}]
     // console.warn(data.title);
     // console.warn(data);
-    if (Cart.length > 0) {
+    // console.warn(carts);
+    if(profileName==''|| profileName == null){
+      navigate('/login')
+      setTimeout(()=>{
+        alert('Login to Continue')
+
+      },10)
+    }
+   else if (Cart.length > 0) {
       return alert(`${tocarts.title} is already added in the Cart`);
     } else {
       // console.log(tocarts);
@@ -27,6 +38,7 @@ const View = () => {
     // console.log(input);
     //  console.log(count);
   };
+
   return (
     <div>
       {data.map((item) => {

@@ -1,7 +1,6 @@
-import React, { useContext, useEffect } from 'react'
-import { ProductsList } from './ProducsList'
+import React, { useContext } from 'react'
 import { Card ,Button} from 'react-bootstrap'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { myContext } from '../Context/myContext'
 const Collections = () => {
 
@@ -17,8 +16,9 @@ const Collections = () => {
     <div className='row gap-5'>
     {products.map((item)=>(
        
-        <Card
-        className="shadow p-3 mb-5 bg-body-tertiary rounded"
+        <Card 
+       
+        className="'card__overlay'shadow p-3 mb-5 bg-body-tertiary rounded"
             style={{ width: "17rem", marginBottom: "30px", marginTop: "10px" }}
             key={item.id}
           >

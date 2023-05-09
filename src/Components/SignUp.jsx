@@ -8,8 +8,8 @@ const SignUp = () => {
 const navigate=useNavigate()
 const inputRef=useRef(null)
 
-  const clickHandler=()=>{
-  
+
+  const clickHandler=()=>{  
 const name=inputRef.current.username.value
 const email=inputRef.current.email.value
 const password=inputRef.current.password.value
@@ -17,13 +17,7 @@ const cpassword=inputRef.current.cpassword.value
 setLogin([...login,{name,password,email,cpassword}])
 console.log(login);
 navigate('/login')
-
-
   }
-
-
-
-
   return (
     <div className='container  d-flex justify-content-center align-items-center ' style={{maxWidth:'100%',height:'700px'}}>
       <form ref={inputRef} onSubmit={(e)=>e.preventDefault()}>

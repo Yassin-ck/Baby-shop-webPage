@@ -10,10 +10,10 @@ import Cloths from "./Components/Cloths";
 import Diapers from "./Components/Diapers";
 import View from "./Components/View";
 import Cart from "./Components/Cart";
+import Login from './Components/Login'
 import { myContext } from "./Context/myContext";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useState } from "react";
 import SignUp from "./Components/SignUp";
-import Login from "./Components/Login";
 import AdminSidebar from "./Components/Admin/AdminSidebar";
 import UserAdmin from "./Components/Admin/UserAdmin";
 import UserLogindata from "./Components/Admin/UserLogindata";
@@ -22,45 +22,32 @@ import AdminProducts from "./Components/Admin/AdminProducts";
 import Collections from "./Components/Collections";
 import AdminAddproducts from "./Components/Admin/AdminAddproducts";
 import AdminEdit from "./Components/Admin/AdminEdit";
-// const x = () =>
-//  {
-//   for (let i = 0; i < ProductsList.length; i++) {
-//     console.log(ProductsList[i].qty);
-//      ProductsList[i].qty
+import AdminLogin from "./Components/Admin/AdminLogin";
+import Logout from "./Components/Logout";
 
-//   }
 
-// }
-
-// const initialState = 1;
-// console.log(initialState);
-
-// const reducer = (state, action) => {
-//   switch (action) {
-//     case "increment":
-//       return  state + 1
-//     case "decrement":
-//       if (state === 1) {
-//         return state;
-//       }
-//       return state - 1;
-//     default:
-//       return state;
-//   }
-// };
-// let a=x()
-// let [b]=a
-
-// const initialState=[]
 function App() {
-  const [products,setProducts]=useState(ProductsList)
-  const[login,setLogin]=useState([])
-  const location = useLocation();
+  const [admin,setAdmin] = useState({username:'admin',password:'blaah'})
+  const [products, setProducts] = useState(ProductsList);
+  const [login, setLogin] = useState([]);
   const [change, setChange] = useState(false);
-  // const [count, dispatch] = useReducer(reducer, initialState);
-  // const [quantity,setQuantity]=useState(1)
+  const [search, setSearch] = useState("");
+  const [isAuth, setIsAuth] = useState(false);
   const [carts, setCarts] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+  const [profileName,setProfileName] = useState([])
+  const [profileAuth,setProfileAuth] = useState(false)
+ 
+  const location = useLocation();
   const states = {
+    admin,
+    setAdmin,
+    profileName,
+    setProfileName,
+    profileAuth,
+    setProfileAuth,
+    filtered,
+    setFiltered,
     change,
     setChange,
     carts,
@@ -68,21 +55,32 @@ function App() {
     login,
     setLogin,
     products,
-    setProducts
+    setProducts,
+    search,
+    setSearch,
+    auth: isAuth,
+    setAuth: setIsAuth,
   };
   useEffect(() => {
+    window.scroll(0,0);
     if (location.pathname.includes("admin")) {
       setChange(true);
     } else {
       setChange(false);
     }
-  }, [location]);
+  }, [location,[]]); 
+
+  // useEffect(()=>{
+
+  // },[])
 
   return (
     <div className="App">
       <myContext.Provider value={states}>
         {change ? null : <Header />}
         <Routes>
+          
+          <Route path="/admin/login" element={<AdminLogin />}></Route>
           <Route path="/" element={<Body />}></Route>
           <Route path="/categories" element={<Categories />}></Route>
           <Route path="/Toys" element={<Toys />}></Route>
@@ -90,16 +88,24 @@ function App() {
           <Route path="/Diapers" element={<Diapers />}></Route>
           <Route path="/collections" element={<Collections />}></Route>
           <Route path="/view/:id" element={<View />}></Route>
-          <Route path="/cart" element={<Cart />}></Route>
-          <Route path="/login" element={<Login />}></Route>
+          <Route path="/admincart" element={<Cart />}></Route>
+          <Route path="/login" element={<Login/>}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
+          <Route path="/logout" element={<Logout />}></Route>
           <Route path="/admin" element={<AdminSidebar />}></Route>
+
           <Route element={<AdminSidebar />}>
             <Route path="/admin/user" element={<UserAdmin />}></Route>
             <Route path="/admin/logindata" element={<UserLogindata />}></Route>
             <Route path="/admin/products" element={<AdminProducts />}></Route>
-            <Route path="/admin/addproducts" element={<AdminAddproducts />}></Route>
-            <Route path="/admin/productedit/:id" element={<AdminEdit />}></Route>
+            <Route
+              path="/admin/addproducts"
+              element={<AdminAddproducts />}
+            ></Route>
+            <Route
+              path="/admin/productedit/:id"
+              element={<AdminEdit />}
+            ></Route>
           </Route>
         </Routes>
         {change ? null : <Footer />}

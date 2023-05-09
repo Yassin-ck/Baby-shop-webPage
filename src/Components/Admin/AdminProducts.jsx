@@ -16,7 +16,6 @@ const buttonid=parseInt(item.target.id)
 const updated=products.filter((item)=>(item.id!==buttonid))
 setProducts(updated)
     }
-
   
   return (
     <div>
@@ -102,3 +101,4 @@ setProducts(updated)
 }
 
 export default AdminProducts
+ 

@@ -60,3 +60,60 @@ border-radius: 1px;
 }#adminproducts{
     border: 20px;
 }
+/* .card__overlay{
+    position: absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:1;
+    border-radius:  calc(var(--curve) * 1px);
+    background-color: var (--surface-color);
+    transform: translateY(100%);
+    transition: .2s easein-out;
+
+}
+.card:hover .card__overlay{
+    transform:translate(0);
+}
+.card__header{
+    position:relative;
+    display: flex;
+    align-items:center;
+    gap:2em;
+    padding:2em;
+    border-radius:calc(var(--curve)* 1px) 0 0 0;
+    background-color:var(--surface-color);
+    transform: translateY(-100%);
+    transition:  .2s ease-in-out;
+}.carc___arc{
+    width:80 px ;
+    height: 80px;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    z-index: 1;
+} */
+.my-card {
+    width: 17rem;
+    margin-bottom: 30px;
+    margin-top: 10px;
+  }
+  
+  .card-image {
+    height: 280px;
+    max-width: 300px;
+  }
+  
+  .card-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+  }
+  
+  .card-button {
+    margin-top: 10px;
+  }
+  
