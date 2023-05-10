@@ -120,13 +120,13 @@ const Cart = () => {
           style={{ textAlign: "center", height: "100vh" }}
         >
           <div className="text-warning" >
-            <h2 >Cart Is Empty</h2>
-            <Link to="/collections"  style={{textDecoration:'none',color:'black'}}>Click here...to continue shopping</Link>
+            <h2 >Your Cart Is Currently Empty </h2><br/>
+            <Button className="bg-warning text-secondary" s onClick={()=>navigate('/collections')}  style={{border:'1px solid black',borderRadius:'1px'}}>Continue shopping...</Button>
           </div>
         </div>
       ) : (
         <div>
-          <h1 style={{ textAlign: "center" }}>Carts</h1>
+          <h1 className='text-light' style={{ textAlign: "center" }}>Carts</h1>
           {carts.map((item) => {
             return (
               <div key={item.id}>

@@ -7,26 +7,34 @@ import { useNavigate } from 'react-router-dom'
 const AdminProducts = () => {
    const navigate=useNavigate()
     const productsData=useContext(myContext)
-    const {products,setProducts}=productsData
-    console.log(products);
+    const {products,setProducts,searchProducts,setSearchProducts}=productsData
+    // console.log(products);
     const details=products.filter((item)=>(item))
-    console.log(details);
+    // console.log(details);
     const deleteHandler=(item)=>{
 const buttonid=parseInt(item.target.id)
 const updated=products.filter((item)=>(item.id!==buttonid))
 setProducts(updated)
     }
+    const searchDetails=products.filter((item)=>{
+    const name = item.title.toLowerCase()
+    return  name.includes(searchProducts)})
+    const searchHandler=(e)=>{
+setSearchProducts((e.target.value).toLowerCase())
+// console.warn(searchProducts);'
+
+    }
   
   return (
     <div>
 
-  <input placeholder='Search Products here ' className='m-3 p-2 inputproductsadmin'></input>
+  <input placeholder='Search Products here ' className='m-3 p-2 inputproductsadmin' onChange={searchHandler}></input>
   <Button style={{border:'1px solid green',borderRadius:'1px' }} variant="success"  onClick={()=>navigate('/admin/addproducts')}>Add Products</Button>
 
 
     <div className='d-flex flex-column container'>
     <div className='row gap-1'>
-   {details.map((item)=>(
+   {searchDetails.map((item)=>(
     
     <div key={item.id}>
       <div
@@ -59,7 +67,7 @@ setProducts(updated)
            <div className="bd-secondary">
            <h4>{item.title}</h4>
            <p>
-             <strong> Price</strong>: <strong>{console.log(item.qty)}</strong> x
+             <strong> Price</strong>: 
              <strong> ₹{item.price} </strong>
            </p>
          </div>

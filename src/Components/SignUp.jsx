@@ -66,13 +66,14 @@ const SignUp = () => {
           >
             Sign In
           </Button>
-          <div className="d-flex  mb-3">
+          <div className="d-flex  ">
             <p>If you have an account? </p>
             <Link to="/login" className="button">
               Login here
             </Link>
          
           </div>
+        
         
         </div>
       </form>

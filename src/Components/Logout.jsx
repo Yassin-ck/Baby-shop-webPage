@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { Button } from "react-bootstrap";
 import { myContext } from "../Context/myContext";
 import { useNavigate } from "react-router-dom";
@@ -22,12 +22,16 @@ const Logout = () => {
       name == Username[Username.length - 1].toString() &&
       pass == Password[Password.length - 1].toString()
     ) {
-      navigate("/signup");
+      navigate("/");
       setProfileName(null);
     } else {
       alert("wrong username or password");
     }
   };
+  useEffect(()=>{
+if(profileName==''||profileName==null)
+return navigate('/')
+  },[])
   return (
     <div>
       <div

@@ -32,6 +32,8 @@ const Login = () => {
   const clickHandler = () => {
     const name = inputRef.current.username.value;
     const password = inputRef.current.password.value;
+
+   
     // console.log(name);
     if (namedetails.includes(name) && passdetails.includes(password)) {
       navigate("/");
@@ -40,12 +42,14 @@ const Login = () => {
     }
     //  setLogin(...login,[name,password])
     //  console.log(login);
-    setProfileName(namedetails[namedetails.length-1])
+    setProfileName(namedetails)
+    
 
     // console.log(profileName);
     
     
   };
+ 
   // console.warn(profileName);
 //   useEffect(()=>{
 //     if(profileName.length>0){

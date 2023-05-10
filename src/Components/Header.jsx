@@ -9,7 +9,7 @@ import "./style.css";
 import { IoMdLogOut } from 'react-icons/io'
 
 function Header() {
-  const{carts,profileName,login}=useContext(myContext)
+  const{carts,profileName,login,searchHeader,setSearchHeader,products}=useContext(myContext)
   // const {products,productSearch, setProductSearch,productAuth,setProductAuth,filteredProduct,setFilteredProduct} = useContext(myContext)
   // const inputRef = useRef(null)
   const navigate = useNavigate();
@@ -31,6 +31,19 @@ function Header() {
   // useEffect(()=>{
   //   console.warn(profileName);
   // },[profileName])
+  const searched = products.filter((item)=>{
+    const name = item.title.toLowerCase()
+    console.log(name);
+    return name.includes(searchHeader)
+  
+  }) 
+const searchHandler=(e)=>{
+setSearchHeader((e.target.value).toLowerCase())
+
+  
+
+navigate('/collections')
+}
 
   return (
     <div>
@@ -79,8 +92,9 @@ function Header() {
                 placeholder="Search products..."
                 className="me-3"
                 aria-label="Search"
+                onChange={searchHandler}
               />
-              <Button className='me-2' style={{height:'50px',position:'relative',top:'8px'}} variant="outline-dark">Search</Button>
+              <Button className='me-2' style={{height:'50px',position:'relative',top:'8px'}} variant="outline-dark" >Search</Button>
 
             <div> 
             
@@ -89,7 +103,7 @@ function Header() {
                   size={"2.5rem"}
                   id="cartIcon"
                   style={{ color: "orange",height:'50px',position:'relative',top:'8px' }}
-                />{carts.length<1?null:<Badge className="bg-light text-dark"
+                />{carts.length<1?null:<Badge className="bg-warning text-light"
                 style={{position:'relative',bottom:'50px',left:'40px'}}
                >
               {carts.length}
@@ -100,16 +114,16 @@ function Header() {
                 <FaUserCircle
                   size={"2.5rem"}
                   id="profileIcon"
-                  style={{ color: "green" ,height:'50px',position:'relative',top:'8px'}}
+                  style={{ color: "black" ,height:'50px',position:'relative',top:'8px'}}
                 /> 
                 
               </Link> :<Link to='/logout' > <IoMdLogOut size={"2.5rem"}
               id="profileIcon"
-              style={{ color: "blue" ,height:'50px',position:'relative',top:'12px'}}/><Badge className="bg-dark text-light"
+              style={{ color: "black" ,height:'50px',position:'relative',top:'12px'}}/><Badge className="bg-dark text-light"
               style={{position:'relative',bottom:'48px',left:'20px'}}
           
              >
-            {profileName}
+            {loginCheck}
              </Badge></Link>  }
             </Form>
           </div>

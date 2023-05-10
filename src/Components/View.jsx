@@ -23,7 +23,6 @@ const View = () => {
       navigate('/login')
       setTimeout(()=>{
         alert('Login to Continue')
-
       },10)
     }
    else if (Cart.length > 0) {

@@ -36,8 +36,15 @@ function App() {
   const [filtered, setFiltered] = useState([]);
   const [profileName, setProfileName] = useState([]);
   const [profileAuth, setProfileAuth] = useState(false);
+  const [searchProducts,setSearchProducts] = useState([])
+  const [searchHeader,setSearchHeader] = useState([])
   const location = useLocation();
+
   const states = {
+    searchHeader,
+    setSearchHeader,
+    searchProducts,
+    setSearchProducts,
     admin,
     setAdmin,
     profileName,
@@ -59,23 +66,17 @@ function App() {
     auth: isAuth,
     setAuth: setIsAuth,
   };
+  
   useEffect(() => {
     window.scroll(0, 0);
-    if (location.pathname.includes("admin")) {
+    if (location.pathname.includes("admin")||location.pathname.includes("signup")||location.pathname.includes("login")) {
       setChange(true);
-    } else if(location.pathname.includes("signup")) {
-      setChange(true);
-    } else if(location.pathname.includes("login")) {
-      setChange(true);
-    
-    } else if(location.pathname.includes("logout")) {
-      setChange(true);
-    }else{
+     }else{
       setChange(false);
     }
   }, [location, []]);
 
-  useEffect(() => {}, []);
+
 
   return (
     <div className="App">
@@ -110,7 +111,9 @@ function App() {
             ></Route>
           </Route>
         </Routes>
-        {change ? null : <Footer />}
+        {change ? null : <Footer/>}
+     
+        
       </myContext.Provider>
     </div>
   );
