@@ -117,3 +117,36 @@ border-radius: 1px;
     margin-top: 10px;
   }
   
+
+
+
+
+  h1    {
+    font-size:35px;
+    color:#141a06;
+    font-weight:bold;
+    /* font-style:italic; */
+}
+
+mark.red {
+    color:#ff0000;
+    background: none;
+}
+
+mark.blue {
+    color:#0000A0;
+    background: none;
+}
+#backImage{
+    height: '100px';
+    width: '100px';
+
+    background-image:url('./src/Images/4735667.jpg');
+}
+#rightArrow:hover{
+color: aliceblue;
+}
+.categorypart{
+
+    background-color: bisque;
+}

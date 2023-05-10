@@ -10,7 +10,7 @@ import Cloths from "./Components/Cloths";
 import Diapers from "./Components/Diapers";
 import View from "./Components/View";
 import Cart from "./Components/Cart";
-import Login from './Components/Login'
+import Login from "./Components/Login";
 import { myContext } from "./Context/myContext";
 import { useEffect, useState } from "react";
 import SignUp from "./Components/SignUp";
@@ -25,9 +25,8 @@ import AdminEdit from "./Components/Admin/AdminEdit";
 import AdminLogin from "./Components/Admin/AdminLogin";
 import Logout from "./Components/Logout";
 
-
 function App() {
-  const [admin,setAdmin] = useState({username:'admin',password:'blaah'})
+  const [admin, setAdmin] = useState({ username: "admin", password: "blaah" });
   const [products, setProducts] = useState(ProductsList);
   const [login, setLogin] = useState([]);
   const [change, setChange] = useState(false);
@@ -35,9 +34,8 @@ function App() {
   const [isAuth, setIsAuth] = useState(false);
   const [carts, setCarts] = useState([]);
   const [filtered, setFiltered] = useState([]);
-  const [profileName,setProfileName] = useState([])
-  const [profileAuth,setProfileAuth] = useState(false)
- 
+  const [profileName, setProfileName] = useState([]);
+  const [profileAuth, setProfileAuth] = useState(false);
   const location = useLocation();
   const states = {
     admin,
@@ -62,24 +60,28 @@ function App() {
     setAuth: setIsAuth,
   };
   useEffect(() => {
-    window.scroll(0,0);
+    window.scroll(0, 0);
     if (location.pathname.includes("admin")) {
       setChange(true);
-    } else {
+    } else if(location.pathname.includes("signup")) {
+      setChange(true);
+    } else if(location.pathname.includes("login")) {
+      setChange(true);
+    
+    } else if(location.pathname.includes("logout")) {
+      setChange(true);
+    }else{
       setChange(false);
     }
-  }, [location,[]]); 
+  }, [location, []]);
 
-  // useEffect(()=>{
-
-  // },[])
+  useEffect(() => {}, []);
 
   return (
     <div className="App">
       <myContext.Provider value={states}>
         {change ? null : <Header />}
         <Routes>
-          
           <Route path="/admin/login" element={<AdminLogin />}></Route>
           <Route path="/" element={<Body />}></Route>
           <Route path="/categories" element={<Categories />}></Route>
@@ -89,7 +91,7 @@ function App() {
           <Route path="/collections" element={<Collections />}></Route>
           <Route path="/view/:id" element={<View />}></Route>
           <Route path="/admincart" element={<Cart />}></Route>
-          <Route path="/login" element={<Login/>}></Route>
+          <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/logout" element={<Logout />}></Route>
           <Route path="/admin" element={<AdminSidebar />}></Route>

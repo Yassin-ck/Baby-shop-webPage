@@ -35,16 +35,16 @@ function Header() {
   return (
     <div>
    
-    <Navbar className="bg-dark text-light" expand="lg mb-2 pb-1 pt-1"  >
+    <Navbar className="bg-link  text-dark" expand="lg mb-2 pb-1 pt-1"  >
       <Container fluid>
         <Navbar.Brand
           style={{ position: "relative", left: "5px" }}
           onClick={() => navigate("/admin/login")}
         >
-          <FiCornerLeftDown color="white" />
+          <FiCornerLeftDown color="black" />
         </Navbar.Brand>
         <Navbar.Toggle
-          style={{ color: "white" }}
+          style={{ color: "black" }}
           aria-controls="navbarScroll"
         />
         <Navbar.Collapse id="navbarScroll">
@@ -53,13 +53,19 @@ function Header() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link as={Link} to="/" style={{ color: "white" }}>
+            <Nav.Link as={Link} to="/" style={{ color: "black" }}>
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/categories" style={{ color: "white" }}>
-              Categoreis
+            <Nav.Link as={Link} to="/toys" style={{ color: "black" }}>
+              Toys
             </Nav.Link>
-            <Nav.Link as={Link} to="/collections" style={{ color: "white" }}>
+            <Nav.Link as={Link} to="/diapers" style={{ color: "black" }}>
+              Diapers
+            </Nav.Link>
+            <Nav.Link as={Link} to="/cloths" style={{ color: "black" }}>
+              Cloths
+            </Nav.Link>
+            <Nav.Link as={Link} to="/collections" style={{ color: "black" }}>
               Collections
             </Nav.Link>
           </Nav>
@@ -68,17 +74,17 @@ function Header() {
               <Form.Control
                 // ref={inputRef}
                 // onChange={searchhandler}
-      style={{height:'50px',position:'relative',top:'8px'}}
+      style={{height:'50px',position:'relative',top:'8px',maxWidth:'240px'}}
                 type="search"
                 placeholder="Search products..."
-                className="me-2"
+                className="me-3"
                 aria-label="Search"
               />
-              <Button style={{height:'50px',position:'relative',top:'8px'}} variant="outline-light">Search</Button>
+              <Button className='me-2' style={{height:'50px',position:'relative',top:'8px'}} variant="outline-dark">Search</Button>
 
             <div> 
             
-            <Link to="/admincart">
+            <Link to="/admincart" className="me-2">
                 <FiShoppingBag
                   size={"2.5rem"}
                   id="cartIcon"
@@ -90,21 +96,16 @@ function Header() {
                </Badge>}
                 
               </Link></div> 
-     {profileName == null || profileName == '' ? <Link to="/login" >
+     {profileName == null || profileName == '' ? <Link to="/login" className="me-2">
                 <FaUserCircle
                   size={"2.5rem"}
                   id="profileIcon"
                   style={{ color: "green" ,height:'50px',position:'relative',top:'8px'}}
                 /> 
-                <Badge className="bg-light text-dark"
-                style={{position:'relative',bottom:'50px',left:'20px'}}
-             
-               >
-              {profileName}
-               </Badge>
-              </Link> :<Link to='/logout'> <IoMdLogOut size={"2.5rem"}
+                
+              </Link> :<Link to='/logout' > <IoMdLogOut size={"2.5rem"}
               id="profileIcon"
-              style={{ color: "blue" ,height:'50px',position:'relative',top:'12px'}}/><Badge className="bg-light text-dark"
+              style={{ color: "blue" ,height:'50px',position:'relative',top:'12px'}}/><Badge className="bg-dark text-light"
               style={{position:'relative',bottom:'48px',left:'20px'}}
           
              >

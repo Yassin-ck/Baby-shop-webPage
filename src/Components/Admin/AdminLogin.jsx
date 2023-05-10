@@ -21,7 +21,7 @@ const AdminLogin = () => {
 
  if(loginName==admin.username&&loginPass==admin.password){
     
-   navigate('/admin')
+   navigate('/admin/user')
 
     }else{
         alert('Later Bitch')
