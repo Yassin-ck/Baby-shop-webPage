@@ -57,7 +57,7 @@ return navigate('/')
               style={{ position: "relative", right: "8px" }}
             >
               <label>Password:</label>
-              <input name="password" type="text"></input>
+              <input name="password" type="password"></input>
             </div>
             <div>
               <Button

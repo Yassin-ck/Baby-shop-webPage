@@ -13,7 +13,7 @@ navigate('/collections')
     
 <div  className='categorypart'>
 <Card className="bg-light text-white">
-<Card.Img  className='mb-3' src="/src/Images/pexels-oană-andrei-12479393.jpg" alt="Card image"  />
+<Card.Img  className='mb-3' src="/src/Images/back---new.jpg" alt="Card image"  />
 <Card.ImgOverlay id='imgoverlay'>
 <div><Card.Title style={{fontSize:'60px'}}>Baby Essential <br/>Fashion & Nursery</Card.Title>
 <Card.Text style={{fontSize:'30px'}}>
@@ -32,19 +32,19 @@ Fermentum, cursus ultrices porttitor tincidunt suscipit quam <br/> facilisis sit
 <Image src='/src/Images/pexels-cottonbro-studio-3661286.jpg' style={{maxWidth:'300px'}}></Image>
 <Image src='/src/Images/pexels-musa-ortaç-3299662.jpg' style={{maxWidth:'300px'}} className='m-1'></Image>
 <Image src='/src/Images/pexels-cottonbro-studio-3662665.jpg' style={{maxWidth:'300px'}}></Image>
-<Link to='/toys' className='text-dark m-2 p-2' id='rightArrow ' style={{fontSize:'50px',textDecoration:'none'}}><BsFillArrowRightCircleFill /></Link>
+<Link to='/toys' className='text-dark m-2 p-2' id='rightArrow ' style={{fontSize:'50px',textDecoration:'none'}}><BsFillArrowRightCircleFill color='blue' /></Link>
 </div>
 <div className='m-1'><h3 style={{textDecoration:'underline',textDecorationColor:'blue',color:'brown'}}>Diapers...</h3>
 <Image src='/src/Images/pexels-cottonbro-studio-3662842.jpg' style={{maxWidth:'300px'}}></Image>
 <Image src='/src/Images/pexels-anna-shvets-3771693.jpg' style={{maxWidth:'300px'}} className='m-1'></Image>
 <Image src='/src/Images/pexels-pavel-danilyuk-8422262.jpg' style={{maxWidth:'300px'}}></Image>
-<Link to='/diapers' className='text-dark m-2 p-2' id='rightArrow ' style={{fontSize:'50px',textDecoration:'none'}}><BsFillArrowRightCircleFill /></Link>
+<Link to='/diapers' className='text-dark m-2 p-2' id='rightArrow ' style={{fontSize:'50px',textDecoration:'none'}}><BsFillArrowRightCircleFill color='blue' /></Link>
 </div>
 <div className='m-1'><h3 style={{textDecoration:'underline',textDecorationColor:'blue',color:'brown'}}>Cloths...</h3>
 <Image src='/src/Images/pexels-pavel-danilyuk-7220539.jpg' style={{maxWidth:'300px'}}></Image>
 <Image src='/src/Images/pexels-olcay-ertem-10508388.jpg' style={{maxWidth:'300px'}} className='m-1'></Image>
 <Image src='/src/Images/pexels-bruna-gabrielle-félix-13992301.jpg' style={{maxWidth:'300px'}}></Image>
-<Link to='/cloths' className='text-dark m-2 p-2' id='rightArrow ' style={{fontSize:'50px',textDecoration:'none'}}><BsFillArrowRightCircleFill /></Link>
+<Link to='/cloths' className='text-dark m-2 p-2' id='rightArrow ' style={{fontSize:'50px',textDecoration:'none'}}><BsFillArrowRightCircleFill color='blue' /></Link>
 </div>
 </div>
 

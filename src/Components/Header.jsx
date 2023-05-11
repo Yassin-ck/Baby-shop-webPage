@@ -9,7 +9,7 @@ import "./style.css";
 import { IoMdLogOut } from 'react-icons/io'
 
 function Header() {
-  const{carts,profileName,login,searchHeader,setSearchHeader,products}=useContext(myContext)
+  const{carts,profileName,login,searchHeader,setSearchHeader,products,loginName}=useContext(myContext)
   // const {products,productSearch, setProductSearch,productAuth,setProductAuth,filteredProduct,setFilteredProduct} = useContext(myContext)
   // const inputRef = useRef(null)
   const navigate = useNavigate();
@@ -123,7 +123,7 @@ navigate('/collections')
               style={{position:'relative',bottom:'48px',left:'20px'}}
           
              >
-            {loginCheck}
+            {loginName}
              </Badge></Link>  }
             </Form>
           </div>

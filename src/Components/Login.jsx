@@ -5,7 +5,7 @@ import "./style.css";
 import { myContext } from "../Context/myContext";
 const Login = () => {
   const data = useContext(myContext);
-  const { login, setLogin ,profileName,setProfileName} = data;
+  const { login, setLogin ,profileName,setProfileName,loginName,setLoginName} = data;
   const navigate = useNavigate();
   // useEffect(()=>{
   //   console.warn(login);
@@ -33,6 +33,7 @@ const Login = () => {
     const name = inputRef.current.username.value;
     const password = inputRef.current.password.value;
 
+    setLoginName(name)
    
     // console.log(name);
     if (namedetails.includes(name) && passdetails.includes(password)) {
@@ -58,7 +59,7 @@ const Login = () => {
 //    return  navigate('/')
 //     }
 //     },[])
-//     console.log(login);
+    console.log(login);
    
   return (
     <div
@@ -84,7 +85,7 @@ const Login = () => {
             style={{ position: "relative", right: "8px" }}
           >
             <label>Password:</label>
-            <input name="password" type="text"></input>
+            <input name="password" type="password"></input>
           </div>
           <div>
             <Button
@@ -109,3 +110,98 @@ const Login = () => {
 };
 
 export default Login
+
+
+// import React from "react";
+//   import { Formik, Form, Field, ErrorMessage } from "formik";
+//   import * as Yup from "yup";
+//   import "./login.css";
+//   import { myContext } from "../Context/myContext";
+//   import { useContext,useEffect } from "react";
+//   import { Link, useNavigate} from 'react-router-dom';
+
+
+
+//   const Login = () => {
+//     const navigate = useNavigate();
+//     const UserData=useContext(myContext);
+//     const {login, setLogin ,profileName,setProfileName}=UserData;
+//     const initialValues = {
+//       username: "",
+//       password: "",
+//     };
+
+//     const validationSchema = Yup.object().shape({
+//       username: Yup.string().username("Invalid username").required("Required"),
+//       password: Yup.string()
+//         .matches(
+//           /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/,
+//           "Must contain at least one uppercase, one lowercase, one number and one special character"
+//         )
+//         .min(8, "Must be at least 8 characters")
+//         .required("Required"),
+//     });
+//    const badgename = login.map((item)=>{return item.name})
+//    console.log(badgename);
+//     const handleSubmit = (values) => {
+//       const username=values.username;
+//       const password=values.password;
+//       console.log(typeof password);
+
+    
+//       console.log(typeof username);
+//       const filterUSer=login.filter((element)=>element.username===username&&element.password===password);
+//       if(filterUSer.length>0){
+//         setauth(true)
+//         navigate('/')
+//     }
+//     else{
+//       alert('User Not Exist')
+//     }
+//     setProfileName(badgename)
+//     }
+//     useEffect(()=>{
+//           if(profileName.length>0){
+         
+//       alert('Already logined')
+//          return  navigate('/')
+//           }
+//           },[])
+
+//     return (
+//     <div className="beef">
+//       <div className="inform">
+//         <h2>LogIn</h2>
+//         <Formik
+//           initialValues={initialValues}
+//           validationSchema={validationSchema}
+//           onSubmit={handleSubmit}
+//         >
+//           {({ errors, touched }) => (
+//             <Form>
+            
+//               <div className="in-group">
+//                 <label htmlFor="text">Username</label>
+//                 <Field name="username" type="text" className="form-things" />
+//                 <ErrorMessage name="username" component="div" className="error" />
+//               </div>
+//               <div className="in-group">
+//                 <label htmlFor="password">Password</label>
+//                 <Field name="password" type="password" className="form-things" />
+//                 <ErrorMessage name="password" component="div" className="error" />
+//               </div>
+//               <button type="submit" className="btn btn-primary in-button">
+//                 LOGIN
+//               </button>
+//               <p className="p-txt">Dont you have an Account?</p>
+//               <Link  to="/signup" className="acnt-text">Create Account</Link>
+//             </Form>
+//           )}
+//         </Formik>
+
+//       </div>
+//       </div>
+//     );
+//   };
+
+//   export default Login;

@@ -38,9 +38,12 @@ function App() {
   const [profileAuth, setProfileAuth] = useState(false);
   const [searchProducts,setSearchProducts] = useState([])
   const [searchHeader,setSearchHeader] = useState([])
+  const [loginName,setLoginName] = useState([])
   const location = useLocation();
 
   const states = {
+    setLoginName,
+    loginName,
     searchHeader,
     setSearchHeader,
     searchProducts,
